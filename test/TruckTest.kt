@@ -3,33 +3,22 @@ import org.junit.jupiter.api.Test
 
 class TruckTest {
     @Test
-    fun `truck starts at factory`() {
-        val truck = Truck()
-        val factory = Factory()
+    fun `starts at factory`() {
+        val truck = Truck(map)
 
-        assertThat(truck.currentLocation()).isEqualTo(factory)
+        assertThat(truck.location()).isEqualTo(Locations.Factory)
     }
 
     @Test
-    fun `truck pick the first container of the factory`() {
-        val truck = Truck()
-        val factory = Factory()
-        val destination = WareHouseB()
-        val container = Container(destination = destination)
-        factory.addContainer(container)
+    fun `picks the first container of the factory on deliver`() {
+        factory.addContainer(Container(destination = Locations.WarehouseB))
+        val truck = Truck(map)
 
-        truck.pickFrom(factory)
+        truck.deliver()
 
-        assertThat(truck.cargo()).isEqualTo(container)
+//        assertThat()
     }
 
-//    @Test
-//    fun `deliver a cargo to B spends 5 hours traveling`() {
-//        val truck = Truck()
-//        val container = Container(destination = Locations.B)
-//
-//        truck.deliver(container)
-//
-//        assertThat(truck.timeTraveled()).isEqualTo(Time.of(5))
-//    }
+    private val factory = Factory()
+    private val map = Map()
 }

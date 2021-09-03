@@ -1,4 +1,4 @@
-class Point(val location: Int) {
+class Point(val point: Int) {
     companion object {
         fun at(location: Int): Point {
             return Point(location)
@@ -11,17 +11,16 @@ class Point(val location: Int) {
 
         other as Point
 
-        if (location != other.location) return false
+        if (point != other.point) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        return location
+        return point
     }
 
     operator fun minus(point: Point): Point {
-        return Point(this.location - point.location)
+        return Point(this.point - point.point)
     }
-
 }

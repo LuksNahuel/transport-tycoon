@@ -1,4 +1,4 @@
-class Factory: Location {
+class Factory {
     private val containers = mutableListOf<Container>()
 
     fun addContainer(container: Container) {
@@ -8,8 +8,6 @@ class Factory: Location {
     fun containers(): List<Container> {
         return containers
     }
-
-    override fun location() = Point.at(0)
 
     fun firstContainer(): Container {
         return containers.removeAt(0)
