@@ -1,5 +1,5 @@
 class Route {
-    fun requiredTimeToTravel(from: Locations, to: Locations): Time {
-        return Time.of(5)
+    fun timeToTravel(from: Location, to: Location): Time {
+        return Time.of((to.location() - from.location()).location)
     }
 }
